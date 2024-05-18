@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience</title>
+    <link rel="icon" type="image/png" href="images/3.png">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #282828;
+            color: #fff;
+            overflow-x: hidden; 
+        }
+
+        header {
+            background-color: rgba(48, 48, 48, 0.9);
+            color: #fff;
+            text-align: center;
+            font-size: 30px;
+            padding: 20px 0;
+            width: 100%; 
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            font-family: 'Montserrat', sans-serif; 
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: large;
+            width: 100%;
+            text-align: center; 
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            display: inline-block;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            height: 3px;
+            width: 0;
+            background: #84DCE0;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        .project-item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-info {
+            background-color: grey;
+            border-radius: 20px;
+            justify-content: center;
+            padding: 20px;
+            text-align: left;
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .project-info:hover {
+            transform: scale(1.05);
+        }
+
+        .project-info h1 {
+            background-color: darkgrey;
+            padding: 10px 10px 10px 30px;
+            border-radius: 30px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            margin: 0 auto;
+            width: fit-content;
+        }
+
+        .project-info h1:hover {
+            transform: scale(1.05);
+        }
+
+        .project-img img {
+            width: 70%;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ccc;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-img img:hover {
+            transform: scale(1.05);
+        }
+
+        .menu-icon {
+            display: none;
+            margin-left: 40px;
+            cursor: pointer;
+        }
+
+        .menu-icon span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            nav {
+                display: none;
+            }
+
+            nav.open {
+                display: block;
+            }
+
+            nav.open a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            nav.open a:hover {
+                color: #84DCE0;
+            }
+
+            .menu-icon.open span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-icon.open span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-icon.open span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .project-item {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-img img {
+                width: 100%;
+            }
+
+            .project-info {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <a href="Main_Home_Page.html">HOME</a>
+            <a href="About.html">ABOUT</a>
+            <a href="Experience.html">EXPERIENCE</a>
+            <a href="Contact.html">CONTACT</a>
+        </nav>
+    </header>
+
+    <section id="projects">
+        <div class="container">
+            <div class="projects-header">
+                <h1 class="section-title">RECENT <span> PROJECTS</span></h1>
+            </div>
+            <div class="all-projects">
+                <div class="project-item">
+                    <div class="project-info" onclick="navigateToProject('Project1/Genealogy_Israel/src/genealogy_israel')">
+                        <h1>PROJECT 1</h1>
+                        <h2>GENEALOGY</h2>
+                        <p>This code is created for my programming task, I just want to display this work because it is also my basic project that I created a simple but memorable work.</p>
+                    </div>
+                    <div class="project-img">
+                        <img src="images/genealogy.png" alt="Project 1">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.querySelector('nav');
+            var menuIcon = document.querySelector('.menu-icon');
+
+            nav.classList.toggle('open');
+            menuIcon.classList.toggle('open');
+        }
+
+        function navigateToProject(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>

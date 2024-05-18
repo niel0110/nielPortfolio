@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="icon" type="image/png" href="images/3.png">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #282828;
+            background-size: cover;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: rgba(48, 48, 48, 0.9);
+            color: #fff;
+            text-align: center;
+            font-size: 30px;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            font-family: 'Montserrat', sans-serif; 
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: large;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            display: inline-block;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            height: 3px;
+            width: 0;
+            background: #84DCE0;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 100px auto 0;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile {
+            flex: 0 0 350px; 
+            margin-right: 20px; 
+        }
+
+        .profile img {
+            width: 100%; 
+            height: auto;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile img:hover {
+            transform: scale(1.1);
+        }
+
+        .info {
+            flex: 1;
+            text-align: left;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: bold;
+        }
+
+        .info h3, .info span {
+            margin-top: 0;
+            color: #84DCE0;
+        }
+
+        .info h1 {
+            color: lightgray;
+            font-size: 3em;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .info h1:hover {
+            color: #84DCE0;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        .social-icons a img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .download-button {
+            margin-top: 40px;
+        }
+
+        .download-button a {
+            background-color: #000000;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .download-button a:hover {
+            background-color: #666;
+            transform: scale(1.05);
+        }
+
+        .menu-icon {
+            display: none;
+            margin-left: 40px;
+            cursor: pointer;
+        }
+
+        .menu-icon span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px;
+            transition: background-color 0.5s ease;
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                margin-left: 5px;
+            }
+
+            nav.open {
+                display: block;
+            }
+
+            nav.open a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            nav.open a:hover {
+                color: #84DCE0;
+            }
+
+            .menu-icon.open span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-icon.open span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-icon.open span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .container {
+                flex-direction: column;
+            }
+
+            .profile {
+                margin-right: 0;
+                margin-bottom: 20px;
+                order: -1;
+            }
+
+            .info {
+                text-align: center;
+            }
+        }
+
+        .projects {
+            margin-top: 20px;
+            background-color: #383838;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .projects h2 {
+            color: #84DCE0;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .projects .project {
+            display: inline-block;
+            width: 250px;
+            margin: 20px;
+            background-color: #505050;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .projects .project img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .projects .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .projects .project:hover img {
+            transform: scale(1.1);
+        }
+
+        .projects .project h3 {
+            color: #fff;
+            padding: 15px;
+        }
+
+        footer {
+            background-color: #282828;
+            color: #84DCE0;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: #84DCE0;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <a href="Main_Home_Page.html">HOME</a>
+            <a href="About.html">ABOUT</a>
+            <a href="Experience.html">EXPERIENCE</a>
+            <a href="Contact.html">CONTACT</a>
+        </nav>
+    </header>
+    <div class="container" id="about">
+        <div class="profile">
+            <img src="images/NielPic-1.png" alt="Profile Picture">
+        </div>
+        <div class="info">
+            <h3>Hi, I'm <span>NIEL PATRICK ISRAEL</span>.</h3>
+            <h1><span>W</span>EB <span>D</span>ESIGNER</h1>
+            <h3>BACHELOR OF SCIENCE IN INFORMATION TECHNOLOGY<br> 
+               MAJOR IN BUSINESS TECHNOLOGY MANAGEMENT <br>
+                WEB DESIGNER AND DEVELOPER<br>
+                <span>I EXPLORE, LEARN MORE, AND DO BETTER</span></h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/nielpatrick.israel?mibextid=ZbWKwL"><img src="images/pngwing.com (4).png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/ghoster.ftproud/"><img src="images/pngwing.com (5).png" alt="Instagram"></a>
+                <a href="https://twitter.com/"><img src="images/pngwing.com (6).png" alt="Twitter"></a>
+                <a href="https://github.com/niel0110"><img src="images/pngwing.com (7).png" alt="GitHub"></a>
+            </div>
+            <div class="download-button">
+                <a href="your-cv.pdf" download>Download CV</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="projects">
+        <h2>BASIC SKILLS</h2>
+        <div class="project">
+            <img src="images/CODINGS.png" alt="Project 1">
+            <h3>BASIC CODING</h3>
+        </div>
+        <div class="project">
+            <img src="images/Editing.png" alt="Project 2">
+            <h3>BASIC EDITING</h3>
+        </div>
+        <div class="project">
+            <img src="images/msoffice.png" alt="Project 3">
+            <h3>BASIC MICROSOFT OFFICE</h3>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Niel Patrick Israel. All rights reserved.</p>
+        <p><a href="mailto:nielpatrick@example.com">nielpatrick@example.com</a></p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.querySelector('nav');
+            var menuIcon = document.querySelector('.menu-icon');
+
+            nav.classList.toggle('open');
+            menuIcon.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

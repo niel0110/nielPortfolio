@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="icon" type="image/png" href="images/3.png">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #282828;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: rgba(48, 48, 48, 0.9);
+            color: #fff;
+            text-align: center;
+            font-size: 30px;
+            padding: 20px 0;
+        }
+
+        nav {
+            font-family: 'Montserrat', sans-serif; 
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: large;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            display: inline-block;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            height: 3px;
+            width: 0;
+            background: #84DCE0;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .bullet-container {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .bullet-container h3 {
+            margin-top: 0;
+        }
+
+        .bullet-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .bullet-container ul li {
+            margin-bottom: 5px;
+        }
+
+        .feedback-container {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .feedback-container h3 {
+            margin-top: 0;
+        }
+
+        .feedback-container input[type="text"] {
+            width: 99%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            margin-left: -10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #333;
+        }
+        .feedback-container input[type="submit"] {
+            width:99%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #333;
+        }
+
+        .feedback-container input[type="submit"] {
+            background-color: #84DCE0;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .feedback-container input[type="submit"]:hover {
+            background-color: #5cb8b2;
+        }
+
+        .menu-icon {
+            display: none;
+            margin-left: 40px;
+            cursor: pointer;
+        }
+
+        .menu-icon span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+
+            nav {
+                display: none;
+            }
+
+            nav.open {
+                display: block;
+            }
+
+            nav.open a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            nav.open a:hover {
+                color: #84DCE0;
+                transition: all 400ms ease;
+            }
+
+            .menu-icon.open span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-icon.open span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-icon.open span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <a href="Main_Home_Page.html">HOME</a>
+            <a href="About.html">ABOUT</a>
+            <a href="Experience.html">EXPERIENCE</a>
+            <a href="Contact.html">CONTACT</a>
+        </nav>
+    </header>
+
+    <div class="contact-container">
+        <h2>CONTACT US</h2>
+        <div class="bullet-container">
+            <h3>EMAIL:</h3>
+            <ul>
+                <li>info@example.com</li>
+                <li>support@example.com</li>
+            </ul>
+        </div>
+        <div class="bullet-container">
+            <h3>CONTACT NUMBER:</h3>
+            <ul>
+                <li>+1234567890</li>
+                <li>+0987654321</li>
+            </ul>
+        </div>
+        <div class="bullet-container">
+            <h3>ADDRESS:</h3>
+            <ul>
+                <li>123 Main Street</li>
+                <li>City, Country</li>
+            </ul>
+        </div>
+
+        <div class="feedback-container">
+            <h3>Leave Your Feedback</h3>
+            <form action="#" method="post">
+                <div class="input-container">
+                    <input type="text" placeholder="Name" id="name" name="name">
+                </div>
+                <div class="input-container">
+                    <input type="text" placeholder="Email" id="email" name="email">
+                </div>
+                <div class="input-container">
+                    <input type="text" placeholder="Contact Number" id="contact" name="contact">
+                </div>
+                <div class="input-container">
+                    <input type="text" placeholder="Feedback" id="feedback" name="feedback">
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.querySelector('nav');
+            var menuIcon = document.querySelector('.menu-icon');
+
+            nav.classList.toggle('open');
+            menuIcon.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

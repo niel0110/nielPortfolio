@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="icon" type="image/png" href="images/3.png">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #282828;
+            background-size: cover;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: rgba(48, 48, 48, 0.9);
+            color: #fff;
+            text-align: center;
+            font-size: 30px;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            font-family: 'Montserrat', sans-serif; 
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: large;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            display: inline-block;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            display: block;
+            height: 3px;
+            width: 0;
+            background: #84DCE0;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 100px auto 0;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-container {
+            display: flex;
+            text-align: justify;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 150px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .about-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-container img {
+            max-width: 300px;
+            border-radius: 30px;
+            padding: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .about-container img:hover {
+            transform: scale(1.1);
+        }
+
+        .about-container div {
+            flex: 1;
+            color: #fff;
+        }
+
+        .about-container h1 {
+            color: #84DCE0;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .about-container p {
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        .menu-icon {
+            display: none;
+            margin-left: 40px;
+            cursor: pointer;
+        }
+
+        .menu-icon span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        
+
+        @media screen and (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+
+            nav {
+                display: none;
+            }
+
+            nav.open {
+                display: block;
+            }
+
+            nav.open a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            nav.open a:hover {
+                color: #84DCE0;
+            }
+
+            .menu-icon.open span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-icon.open span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-icon.open span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-container img {
+                margin-bottom: 20px;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <a href="Main_Home_Page.html">HOME</a>
+            <a href="About.html">ABOUT</a>
+            <a href="Experience.html">EXPERIENCE</a>
+            <a href="Contact.html">CONTACT</a>
+        </nav>
+    </header>
+
+    <div class="about-container">
+        <img src="images/Niel-About.jpg" alt="Niel Patrick Israel">
+        <div>
+            <h1>ABOUT ME</h1>
+            <p>Greetings! I'm Niel Patrick S. Israel, a sophomore studying Bachelor of Science in Information Technology at the University of Southeastern Philippines, specializing in Business Technology Management. 
+                My journey in college has been centered around immersing myself in the realm of programming, particularly Java. This experience has allowed me to develop proficiency in crafting diverse programs 
+                and applications, along with effectively leveraging SQL databases. As I continue to refine my skills, my enthusiasm for exploring and expanding my knowledge within the expansive field of technology remains 
+                unwavering. I am eagerly looking forward to delving deeper into various aspects of IT and embracing new challenges along the way.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var nav = document.querySelector('nav');
+            var menuIcon = document.querySelector('.menu-icon');
+
+            nav.classList.toggle('open');
+            menuIcon.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
